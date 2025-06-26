@@ -63,8 +63,8 @@ Strategy:
 If >80% -> skip early stops
 If <30% -> prioritize nearby station
 
-EVs: fast chargers at 15–25%
-CVs: fuel at 10–20%
+EVs: fast chargers at 15-25%
+CVs: fuel at 10-20%
 
 Optimize:
 Minimize stop count
@@ -75,7 +75,7 @@ OPTIMIZATION PRIORITIES
 Safety
 Fewest total stops
 Shortest detour distance
-Most reliable/fast stations (for EVs)
+Most reliable and fast stations (for EVs)
 
 STOP NAMING AND FORMATTING
 Convert coordinates to readable address (street-level preferred)

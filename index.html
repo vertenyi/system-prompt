@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prompt Tool</title>
+</head>
+<body>
+    <h3>Prompt content from prompt.txt</h3>
+    <h4 id="displayURL"></h4>
+    <textarea id="promptBox" style="width: 100%; height: 200px;"></textarea>
+    <br><br>
+
+    <button onclick="downloadAsIs()">Letöltés: Eredeti szöveg</button>
+    <button onclick="downloadAsJSON()">Letöltés: JSON objektum</button>
+    <button onclick="downloadAsJSONString()">Letöltés: JSON string (encoded)</button>
+
+    <script>
+        const PROMPT_URL = 'https://vertenyi.github.io/system-prompt/prompt.txt'; 
+        const displayURL = document.getElementById('displayURL').innerHTML = PROMPT_URL;
+        // 1. Betölti a prompt tartalmat
+        fetch(PROMPT_URL)
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('promptBox').value = data;
+            });
+
+        // 2. Letöltés "as-is"
+        function downloadAsIs() {
+            const text = document.getElementById('promptBox').value;
+            downloadFile(text, 'prompt.txt');
+        }
+
+        // 3. Letöltés mint JSON objektum
+        function downloadAsJSON() {
+            const text = document.getElementById('promptBox').value;
+            const json = { prompt: text };
+            downloadFile(JSON.stringify(json, null, 2), 'prompt_object.json');
+        }
+
+        // 4. Letöltés mint JSON-encoded string
+        function downloadAsJSONString() {
+            const text = document.getElementById('promptBox').value;
+            const encoded = JSON.stringify(text);
+            downloadFile(encoded, 'prompt_encoded.json');
+        }
+
+        // Letöltés helper
+        function downloadFile(content, filename) {
+            const blob = new Blob([content], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+    </script>
+</body>
+</html>

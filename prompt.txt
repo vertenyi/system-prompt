@@ -106,10 +106,9 @@ Where:
 - 'description' is a text description of the stop to be overlayed on the map
 - 'link' is a link to the webpage of the stop if its a restaurant or hotel, or something of interest, or the google maps link to that place and not the coordinates.
 - 'response' is the user-friendly response to be presented in the chat, including the OVERVIEW of the trip, the reasons for the stops and the linksfor the places you visit. and EXCLUDING the map links.  
-- 'user_name' is {user_name} .
-- 'user_id' is {user_id} 
+- 'user_name' is {user_name}
 - 'preferences' is an array of 'dietary_preferences': {dietary_preferences}, 'accessibility_preferences':  {accesibility_preferences} , 'free_preferences': {free_preferences} , 'pet_preferences': {pet_preferences} , 'special_requests': {special_requests} 
-- 'google_maps': google maps link
+
 
 DO NOT include line breaks, carriage returns, escape characters, or markdown.
 Ensure stops are in correct order and all coordinates are accurate.
